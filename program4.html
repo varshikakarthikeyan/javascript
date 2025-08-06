@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            color: red;
+            font-size: 12px;
+
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form id="RegistrationForm" onsubmit="return ValidateForm()">
+        <!--Name Field-->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <div id="nameError" class="error"></div>
+        <br><br>
+
+        <!--Email Field-->
+        <label for="Email">Email:</label>
+        <input type="text" id="email" name="email" required>
+        <div id="emailError" class="error"></div>
+        <br><br>
+
+        <!--Password Field-->
+        <label for="Password">--Password:</label>
+        <input type="text" id="Password" name="Password" required>
+        <div id="PasswordError" class="error"></div>
+        <br><br>
+
+        <!--Phone Number Field-->
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" required>
+        <div id="phoneError" class="error"></div>
+        <br><br>
+        <button type="summit">summit</button>
+        </form>
+        <script>
+            //name
+            function validateName(name){
+                const regex=/^[A-Za-z\s]+$/;
+            if(name.trim()=== ""){
+                return "Name cannot be empty";
+            }
+            if(!regex.test(name)){
+                return "Name can only contain letters and spaces";
+            }
+            return "Name is valid" 
+            }
+
+            //Email
+            function validateEmail(email){
+                const regex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if(email.trim()=== ""){
+                return "Email cannot be empty";
+            }
+            if(!regex.test(email)){
+                return " Invalid Email format";
+            }
+            return "Email is valid" 
+            }
+
+            //Password
+            function validatePassword(password){
+                const regex=/^(?=.*[A-Z])(?=.*\d).{8,}$/;
+            if(password.trim()=== ""){
+                return "Password cannot be empty";
+            }
+            if(!regex.test(password)){
+                return "Password must be atleast 8 characters long,contain an uppercase letter,and a number";
+            }
+            return "Password is valid" 
+            }
+
+            //PhoneNumber
+            function validatePhone(phone){
+                const regex=/^[0-9]{10}$/;
+            if(phone.trim()=== ""){
+                return "Phone number cannot be empty";
+            }
+            if(!regex.test(phone)){
+                return "Phone number must be 10 digits long";
+            }
+            return "Phone Number is valid" 
+            }
+              
+            //form validation
+            function ValidateForm(){
+                const name=document.getElementById("name").value;
+                const email=document.getElementById("email").value;
+                const password=document.getElementById("password").value;
+                const phone=document.getElementById("phone").value;
+
+                const nameError=validateName(name);
+                const emailError=validateName(email);
+                const passwordError=validateName(password);
+                const phoneError=validateName(phone);
+
+                if(nameError === "Name is valid" && emailError ==="Email is valid" && passwordError ==="password is valid" && phoneError ==="phone Number is valid"){
+                    return true;
+                }
+
+                //display error 
+                 document,getElementById("nameError").innerText = nameError === "Name is valid" ? "" : nameError;
+                 document,getElementById("emailerror").innerText = emailError === "Email is valid" ? "" : emailError;
+                 document,getElementById("passwordError").innerText = passwordError === "Password is valid" ? "" : passwordError;
+                 document,getElementById("phoneError").innerText = phoneError === "Phone Number is valid" ? "" :  phoneError; 
+                 return false; 
+            }
+
+
+
+
+</script>
+
+</body>
+</html>
