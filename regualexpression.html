@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular-Expression</title>
+</head>
+<body>
+    <script>
+ //Quantifiers specify how many times a character or group should appear
+ let text="aaaba";
+ let pattern=/\a*/g;
+ let pattern2=/\a+/g;
+ let pattern3=/\a?/g;
+ let result=text.match(pattern);
+ let result2=text.match(pattern2);
+ let result3=text.match(pattern3);
+ console.log(result)
+ console.log(result2)
+ console.log(result3)
+ //definition
+ //Commom Modifiers:
+ //i->case insensitive
+ //g->global match
+ //m->multiline match
+
+ let sentence="Hai Hello\nHai , I'm Fine."
+ let pattern4=/^\hai+/igm;
+ let result5=sentence.match(pattern4);
+ console.log(result5);
+
+ //Meta characters
+ // .-> any character except newline
+ // \d-> digit (0-9)
+ // \w-> word character(letters,digits\,_)
+ // \s-> whitespace
+ // ^-> start of string/line
+ // $-> end of string/line
+
+
+
+let digitchar="Js001varshika";
+let pattern6=/\d+\w+/ig;
+let result6=digitchar.match(pattern6);
+console.log(result6);
+
+//Grouping
+//Definition
+//Parantheses()are used to group patterns and capture submatches
+
+let username="javascript program";
+let pattern7=/(\w+)/g;
+let result7=username.match(pattern7);
+console.log(result7);
+console.log(result7[0]);
+console.log(result7[1]);
+
+//Methods
+// test()->returns true/false
+// exec()->returns matched result with groups
+// match()->returns array of matches
+// replace()->replaces matches
+// split()->splits string using regex
+
+let lines="apple banana appale grape";
+let pattern8=/apple/;
+console.log(pattern8.test(lines));
+
+let str="Mr Bean has a green Apple and a red Apple";
+const regex=/Apple/ig;
+let results=str.replace(regex,"Strawberries");
+console.log(results);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
